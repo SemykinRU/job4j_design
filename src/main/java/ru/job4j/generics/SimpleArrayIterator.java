@@ -5,16 +5,18 @@ import java.util.NoSuchElementException;
 
 public class SimpleArrayIterator<T> implements Iterator<T> {
     private int cursor = 0;
-    private T[] array;
+    private final T[] array;
+    private final int lastIndexItem;
 
-    public SimpleArrayIterator(T[] array) {
+    public SimpleArrayIterator(T[] array, int point) {
         this.array = array;
+        this.lastIndexItem = point;
     }
 
 
     @Override
     public boolean hasNext() {
-        return cursor < array.length && array[cursor] != null;
+        return cursor < lastIndexItem;
     }
 
     @Override
