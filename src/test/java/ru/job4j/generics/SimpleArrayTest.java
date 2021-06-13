@@ -23,12 +23,8 @@ public class SimpleArrayTest {
         SimpleArray<String> simpleArray = new SimpleArray<>(4);
         simpleArray.add("First");
         simpleArray.add("Second");
-        simpleArray.set(3, "Third");
-        assertThat("Third", is(simpleArray.get(2)));
-        simpleArray.add("Fourth");
-        assertThat("Fourth", is(simpleArray.get(3)));
-        simpleArray.set(3, "1234");
-        assertThat("1234", is(simpleArray.get(3)));
+        simpleArray.set(1, "Third");
+        assertThat("Third", is(simpleArray.get(1)));
     }
 
     @Test
@@ -52,20 +48,20 @@ public class SimpleArrayTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void whenSetIndexOutOfBoundsException() {
         SimpleArray<Integer> simpleArray = new SimpleArray<>(5);
-        simpleArray.set(10, 111111);
+        simpleArray.set(0, 111111);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void whenRemoveIndexOutOfBoundsException() {
         SimpleArray<Integer> simpleArray = new SimpleArray<>(10);
-        simpleArray.remove(20);
+        simpleArray.remove(1);
 
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
     public void whenGetIndexOutOfBoundsException() {
         SimpleArray<Integer> simpleArray = new SimpleArray<>(10);
-        simpleArray.get(20);
+        simpleArray.get(0);
     }
 
     @Test
