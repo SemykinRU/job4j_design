@@ -24,7 +24,7 @@ public class SimpleArrayTest {
         SimpleArray<String> array = new SimpleArray<>(1);
         array.add("first");
         array.add("second");
-        assertThat(11, is(array.getLength()));
+        assertThat(2, is(array.getLength()));
         assertThat("second", is(array.get(1)));
     }
 

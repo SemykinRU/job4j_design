@@ -9,16 +9,18 @@ public class SimpleArrayIterator<T> implements Iterator<T> {
     private final int lastIndexItem;
     private final int exceptedModCount;
     private int cursor = 0;
+    private final SimpleArray<T> simpleArray;
 
-    public SimpleArrayIterator(T[] container, int lastIndexItem, int modCount) {
-        this.container = container;
-        this.lastIndexItem = lastIndexItem;
-        this.exceptedModCount = modCount;
+    public SimpleArrayIterator(SimpleArray<T> ts) {
+       this.simpleArray = ts;
+       this.container = ts.getContainer();
+       this.lastIndexItem = ts.getLength();
+       this.exceptedModCount = ts.getModCount();
     }
 
     @Override
     public boolean hasNext() {
-        return cursor < lastIndexItem;
+        return cursor < lastIndexItem && exceptedModCount != 0;
     }
 
     @Override
@@ -26,7 +28,7 @@ public class SimpleArrayIterator<T> implements Iterator<T> {
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        if (exceptedModCount != SimpleArray.getModCount()) {
+        if (exceptedModCount != simpleArray.getModCount()) {
             throw new ConcurrentModificationException();
         }
         return container[cursor++];
