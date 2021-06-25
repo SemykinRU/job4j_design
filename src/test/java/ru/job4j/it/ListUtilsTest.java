@@ -55,6 +55,6 @@ public class ListUtilsTest {
         List<Integer> input = new ArrayList<>(Arrays.asList(0, 1, 2, 3, 4, 5));
         List<Integer> elements = new ArrayList<>(Arrays.asList(3, 4, 5));
         ListUtils.removeAll(input, elements);
-        assertThat(Arrays.asList(0, 1 , 2), Is.is(input));
+        assertThat(Arrays.asList(0, 1, 2), Is.is(input));
     }
 }
