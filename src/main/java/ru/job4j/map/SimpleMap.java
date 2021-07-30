@@ -15,11 +15,11 @@ public class SimpleMap<K, V> implements Map<K, V> {
     @Override
     public boolean put(K key, V value) {
         int hashValue = hash(key.hashCode());
-        int index = indexFor(hashValue);
         if (LOAD_FACTOR * capacity == count) {
             expand();
         }
-        if (index >= capacity || (table[index] != null && !table[index].key.equals(key))) {
+        int index = indexFor(hashValue);
+        if (table[index] != null && !table[index].key.equals(key)) {
             return false;
         }
         table[index] = new MapEntry<>(key, value);
@@ -52,7 +52,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
     public V get(K key) {
         int hashValue = hash(key.hashCode());
         int index = indexFor(hashValue);
-        return table[index] == null ? null : table[index].value;
+        return table[index] == null || !table[index].key.equals(key) ? null : table[index].value;
     }
 
     @Override
@@ -79,7 +79,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
                 while (cursor < table.length - 1 && table[cursor] == null) {
                     cursor++;
                 }
-                return cursor < table.length - 1 && exceptedModCount != 0;
+                return table[cursor] != null;
             }
 
             @Override
