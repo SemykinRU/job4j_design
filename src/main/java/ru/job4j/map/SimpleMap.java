@@ -14,16 +14,18 @@ public class SimpleMap<K, V> implements Map<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        int hashValue = hash(key.hashCode());
-        if (LOAD_FACTOR * capacity == count) {
+        if (LOAD_FACTOR * capacity <= count) {
             expand();
         }
+        int hashValue = hash(key.hashCode());
         int index = indexFor(hashValue);
-        if (table[index] != null && !table[index].key.equals(key)) {
+        boolean isCollision = table[index] != null && !table[index].key.equals(key);
+        boolean isReplace = table[index] != null && table[index].key.equals(key);
+        if (isCollision) {
             return false;
         }
+        count = isReplace ? count : count + 1;
         table[index] = new MapEntry<>(key, value);
-        count++;
         modCount++;
         return true;
     }

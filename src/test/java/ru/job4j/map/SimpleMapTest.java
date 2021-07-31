@@ -60,12 +60,23 @@ public class SimpleMapTest {
     }
 
     @Test(expected = ConcurrentModificationException.class)
-    public void whenConcurrentModificationExceptionThen() {
+    public void whenPutAndConcurrentModificationExceptionThen() {
         SimpleMap<Integer, String> stringSimpleMap = new SimpleMap<>();
         stringSimpleMap.put(1, "1");
         Iterator<Integer> key = stringSimpleMap.iterator();
         key.next();
         stringSimpleMap.put(2, "2");
+        key.next();
+    }
+
+    @Test(expected = ConcurrentModificationException.class)
+    public void whenReplaceAndConcurrentModificationExceptionThen() {
+        SimpleMap<Integer, String> stringSimpleMap = new SimpleMap<>();
+        stringSimpleMap.put(1, "1");
+        stringSimpleMap.put(2, "2");
+        Iterator<Integer> key = stringSimpleMap.iterator();
+        key.next();
+        stringSimpleMap.put(1, "2");
         key.next();
     }
 
