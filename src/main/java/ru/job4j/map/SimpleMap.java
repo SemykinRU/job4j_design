@@ -25,8 +25,8 @@ public class SimpleMap<K, V> implements Map<K, V> {
             return false;
         }
         count = isReplace ? count : count + 1;
+        modCount = isReplace ? modCount : modCount + 1;
         table[index] = new MapEntry<>(key, value);
-        modCount++;
         return true;
     }
 
