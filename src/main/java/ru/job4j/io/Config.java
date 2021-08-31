@@ -5,8 +5,6 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Config {
 
@@ -39,12 +37,11 @@ public class Config {
         if (Character.isDigit(s.charAt(0)) || s.startsWith("=")) {
             throw new IllegalArgumentException();
         }
-        int lastIndex = s.indexOf("=");
-        String[] arrayStrings = s.split("");
-        Pattern pattern = Pattern.compile("[a-zA-Z\\d]");
-        for (int i = 0; i < lastIndex; i++) {
-            Matcher matcher = pattern.matcher(arrayStrings[i]);
-            if (!matcher.find()) {
+        int end = s.indexOf('=');
+        String string = s.toLowerCase();
+        for (int i = 1; i < end; i++) {
+            if ((string.charAt(i) < 48 || string.charAt(i) > 122)
+                    && (string.charAt(i) > 57 || string.charAt(i) < 97)) {
                 throw new IllegalArgumentException();
             }
         }
