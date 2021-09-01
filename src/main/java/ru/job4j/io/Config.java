@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class Config {
 
@@ -16,36 +18,30 @@ public class Config {
     }
 
     public void load() {
-        try (BufferedReader reader = new BufferedReader(new FileReader(this.path))) {
-            String s;
-            String[] str;
-            while ((s = reader.readLine()) != null) {
-                if (isTrueKey(s)) {
-                    str = s.split("=", 2);
-                    values.put(str[0], str[1].isEmpty() ? null : str[1]);
+        Predicate<String> predicate = new Predicate<String>() {
+            @Override
+            public boolean test(String s) {
+                if (s.isEmpty() || !Character.isLetter(s.charAt(0)) || !s.contains("=")) {
+                    return false;
                 }
+                int end = s.indexOf('=');
+                for (int i = 1; i < end; i++) {
+                   if (!Character.isLetterOrDigit(s.charAt(i))) {
+                        throw new IllegalArgumentException();
+                    }
+                }
+                return true;
             }
+        };
+        try (BufferedReader reader = new BufferedReader(new FileReader(this.path))) {
+           var maps = reader.lines()
+                   .filter(predicate)
+                   .map(x -> x.split("=", 2))
+                   .collect(Collectors.toMap(x -> x[0], x -> x[1]));
+           values.putAll(maps);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    protected boolean isTrueKey(String s) throws IllegalArgumentException {
-        if (s.startsWith("#") || !s.contains("=")) {
-            return false;
-        }
-        if (Character.isDigit(s.charAt(0)) || s.startsWith("=")) {
-            throw new IllegalArgumentException();
-        }
-        int end = s.indexOf('=');
-        String string = s.toLowerCase();
-        for (int i = 1; i < end; i++) {
-            if ((string.charAt(i) < 48 || string.charAt(i) > 122)
-                    && (string.charAt(i) > 57 || string.charAt(i) < 97)) {
-                throw new IllegalArgumentException();
-            }
-        }
-        return true;
     }
 
     public String value(String key) {
