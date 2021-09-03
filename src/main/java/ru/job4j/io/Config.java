@@ -18,20 +18,15 @@ public class Config {
     }
 
     public void load() {
-        Predicate<String> predicate = new Predicate<String>() {
-            @Override
-            public boolean test(String s) {
-                if (s.isEmpty() || !Character.isLetter(s.charAt(0)) || !s.contains("=")) {
-                    return false;
-                }
-                int end = s.indexOf('=');
-                for (int i = 1; i < end; i++) {
-                   if (!Character.isLetterOrDigit(s.charAt(i))) {
-                        throw new IllegalArgumentException();
-                    }
-                }
-                return true;
+        Predicate<String> predicate = s -> {
+            String str = s.trim();
+            if (str.startsWith("#") || !str.contains("=")) {
+                return false;
             }
+            if (str.startsWith("=")) {
+                throw new IllegalArgumentException();
+            }
+            return true;
         };
         try (BufferedReader reader = new BufferedReader(new FileReader(this.path))) {
            var maps = reader.lines()

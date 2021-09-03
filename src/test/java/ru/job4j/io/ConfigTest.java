@@ -21,9 +21,9 @@ public class ConfigTest {
         String path = "./data/pair_with_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value("name"), is("Petr Arsentev"));
-        assertThat(config.value("surname"), is("#"));
-        assertThat(config.value("host"), is("127.0.0.1"));
+        assertThat(config.value("hibernate.dialect"), is("org.hibernate.dialect.PostgreSQLDialect"));
+        assertThat(config.value("hibernate.connection.username"), is("postgres"));
+        assertThat(config.value("hibernate.connection.driver_class"), is("org.postgresql.Driver"));
     }
 
     @Test
