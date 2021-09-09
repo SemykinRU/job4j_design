@@ -9,8 +9,10 @@ import java.util.function.Predicate;
 
 public class Search {
     public static void main(String[] args) throws IOException {
-        if (args.length == 0) {
-            throw new IllegalArgumentException("Не указаны аргументы запуска приложения");
+        if (args.length != 2) {
+            throw new IllegalArgumentException("Для запуска приложения необходимо указать два параметра. "
+                    + "Первый параметр - начальная папка. "
+                    + "Второй параметр - расширение файлов");
         }
         Path start = Paths.get(args[0]);
         search(start, p -> p.toFile().getName().endsWith(args[1])).forEach(System.out::println);
