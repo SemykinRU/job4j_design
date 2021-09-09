@@ -13,15 +13,15 @@ public class ArgsName {
 
     private void parse(String[] args) {
         if (args.length == 0) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Не указаны аргумент(ы) запуска приложения!");
         }
         for (var s : args) {
             if (!s.contains("=") || !s.startsWith("-")) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(String.format("Аргумент %s не отвечает формату -агрумент=значение", s));
             }
             String[] str = s.split("=", 2);
             if (str[0].substring(1).isEmpty() || str[1].isEmpty()) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException(String.format("В аргументе %s один из параметров пуст", s));
             }
             values.put(str[0].substring(1), str[1]);
         }
