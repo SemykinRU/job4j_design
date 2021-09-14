@@ -14,6 +14,9 @@ public class Search {
                     + "Первый параметр - начальная папка. "
                     + "Второй параметр - расширение файлов");
         }
+        if (!Files.exists(Path.of(args[0])) || !Files.isDirectory(Path.of(args[0]))) {
+            throw new IllegalArgumentException(String.format("%s каталога не существует или аргумент не является каталогом.", args[0]));
+        }
         Path start = Paths.get(args[0]);
         search(start, p -> p.toFile().getName().endsWith(args[1])).forEach(System.out::println);
     }
