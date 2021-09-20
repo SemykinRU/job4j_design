@@ -6,9 +6,13 @@ import java.util.Map;
 public class ArgsName {
 
     private final Map<String, String> values = new HashMap<>();
+    private int size = 0;
 
     public String get(String key) {
         return values.get(key);
+    }
+    public int getSize() {
+        return size;
     }
 
     private void parse(String[] args) {
@@ -24,6 +28,7 @@ public class ArgsName {
                 throw new IllegalArgumentException(String.format("В аргументе %s один из параметров пуст", s));
             }
             values.put(str[0].substring(1), str[1]);
+            size++;
         }
     }
 
