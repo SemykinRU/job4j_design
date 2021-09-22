@@ -1,8 +1,6 @@
 package ru.job4j.io;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,9 +10,9 @@ public class ConsoleChat {
 
     private final String path;
     private final String botAnswers;
-    private final String OUT = "закончить";
-    private final String STOP = "стоп";
-    private final String CONTINUE = "продолжить";
+    private final String out = "закончить";
+    private final String stop = "стоп";
+    private final String continues = "продолжить";
     private List<String> log = new ArrayList<>();
 
 
@@ -30,18 +28,18 @@ public class ConsoleChat {
         Scanner in = new Scanner(System.in);
         while (close) {
             str = in.next();
-            if (str.equals(OUT)) {
+            if (str.equals(out)) {
                 log.add(str);
                 close = false;
                 saveLog(log);
                 continue;
             }
-            if (str.equals(STOP)) {
+            if (str.equals(stop)) {
                 stopBot = true;
                 log.add(str);
                 continue;
             }
-            if (str.equals(CONTINUE)) {
+            if (str.equals(continues)) {
                 stopBot = false;
                 log.add(str);
                 continue;
