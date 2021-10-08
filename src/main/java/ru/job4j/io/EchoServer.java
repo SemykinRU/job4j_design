@@ -17,11 +17,23 @@ public class EchoServer {
                     for (String str = in.readLine(); str != null && !str.isEmpty(); str = in.readLine()) {
                         if (Arrays.stream(str.split(" "))
                                 .flatMap(p -> Arrays.stream(p.split("=")))
-                                .anyMatch("Bye"::equals)) {
+                                .anyMatch("Exit"::equals)) {
+                            out.write(("Server was closed" + System.lineSeparator()).getBytes());
                             server.close();
                             break;
                         }
-                        System.out.println(str);
+                        if (Arrays.stream(str.split(" "))
+                                .flatMap(p -> Arrays.stream(p.split("=")))
+                                .anyMatch("Hello"::equals)) {
+                            out.write(("Hello, dear friend." + System.lineSeparator()).getBytes());
+                            break;
+                        }
+                        if (Arrays.stream(str.split(" "))
+                                .flatMap(p -> Arrays.stream(p.split("=")))
+                                .findFirst().isPresent()) {
+                            out.write(("What." + System.lineSeparator()).getBytes());
+                            break;
+                        }
                     }
                     out.flush();
                 }
