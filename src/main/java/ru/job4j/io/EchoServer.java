@@ -14,7 +14,7 @@ public class EchoServer {
                      BufferedReader in = new BufferedReader(
                              new InputStreamReader(socket.getInputStream()))) {
                     out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
-                    while (in.ready()){
+                    while (in.ready()) {
                         String str = in.readLine();
                         if (Arrays.stream(str.split(" "))
                                 .flatMap(p -> Arrays.stream(p.split("=")))
