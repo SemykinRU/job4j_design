@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product name="Apple" count="4" isAction="false">
+    <company name="sir Djo" code="992399"/>
+    <movementHistorys>
+        <movementHistory>A1</movementHistory>
+        <movementHistory>B2</movementHistory>
+    </movementHistorys>
+</product>
