@@ -1,8 +1,20 @@
 package ru.job4j.serialization;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "company")
 public class Company {
-    private final String name;
-    private final int code;
+
+    @XmlAttribute
+    private String name;
+
+    @XmlAttribute
+    private int code;
+
+    public Company() {
+
+    }
 
     public Company(String name, int code) {
         this.name = name;

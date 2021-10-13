@@ -1,16 +1,35 @@
 package ru.job4j.serialization;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.*;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.util.Arrays;
 
+@XmlRootElement(name = "product")
+@XmlAccessorType(XmlAccessType.FIELD)
+
 public class Product {
-    private final String name;
-    private final int count;
-    private final boolean isAction;
-    private final Company company;
-    private final String[] movementHistory;
+
+    @XmlAttribute
+    private String name;
+
+    @XmlAttribute
+    private int count;
+
+    @XmlAttribute
+    private boolean isAction;
+    private Company company;
+
+    @XmlElementWrapper(name = "movementHistorys")
+    @XmlElement(name = "movementHistory")
+    private String[] movementHistory;
+
+    public Product() {
+
+    }
 
     public Product(String name, int count, boolean isAction, Company company, String[] movementHistory) {
         this.name = name;
@@ -51,23 +70,22 @@ public class Product {
                 + '}';
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Product product = new Product("Apple", 4, false, new Company("sir Djo", 992399), new String[]{"A1", "B2"});
-        Gson gson = new GsonBuilder().create();
-        System.out.println(gson.toJson(product));
-        String stringJson = "{"
-                + "\"name\":\"Apple\","
-                + "\"count\":4,"
-                + "\"isAction\":false,"
-                + "\"company\":"
-                    + "{"
-                        + "\"name\":\"sir Djo\","
-                        + "\"code\":992399"
-                        + "},"
-                + "\"movementHistory\":"
-                    + "[\"A1\",\"B2\"]"
-                + "}";
-        Product productFromJson = gson.fromJson(stringJson, Product.class);
-        System.out.println(productFromJson);
+        JAXBContext context = JAXBContext.newInstance(Product.class);
+        Marshaller marshaller = context.createMarshaller();
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        String xml = "";
+        try (StringWriter writer = new StringWriter()) {
+            marshaller.marshal(product, writer);
+            xml = writer.getBuffer().toString();
+            System.out.println(xml);
+        }
+
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        try (StringReader reader = new StringReader(xml)) {
+            Product result = (Product) unmarshaller.unmarshal(reader);
+            System.out.println(result);
+        }
     }
 }
