@@ -1,30 +1,16 @@
 package ru.job4j.serialization;
 
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import javax.xml.bind.annotation.*;
-import java.io.StringReader;
-import java.io.StringWriter;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.util.ArrayList;
 import java.util.Arrays;
-
-@XmlRootElement(name = "product")
-@XmlAccessorType(XmlAccessType.FIELD)
+import java.util.List;
 
 public class Product {
-
-    @XmlAttribute
     private String name;
-
-    @XmlAttribute
     private int count;
-
-    @XmlAttribute
     private boolean isAction;
     private Company company;
-
-    @XmlElementWrapper(name = "movementHistorys")
-    @XmlElement(name = "movementHistory")
     private String[] movementHistory;
 
     public Product() {
@@ -72,20 +58,20 @@ public class Product {
 
     public static void main(String[] args) throws Exception {
         Product product = new Product("Apple", 4, false, new Company("sir Djo", 992399), new String[]{"A1", "B2"});
-        JAXBContext context = JAXBContext.newInstance(Product.class);
-        Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-        String xml = "";
-        try (StringWriter writer = new StringWriter()) {
-            marshaller.marshal(product, writer);
-            xml = writer.getBuffer().toString();
-            System.out.println(xml);
-        }
+        JSONObject jsonCompany = new JSONObject(new Company("sir Djo", 992399));
+        List<String> list = new ArrayList<>();
+        list.add("A1");
+        list.add("B2");
+        JSONArray jsonMovement = new JSONArray(list);
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("name", product.name);
+        jsonObject.put("count", product.count);
+        jsonObject.put("company", jsonCompany);
+        jsonObject.put("isAction", product.isAction);
+        jsonObject.put("movementHistory", jsonMovement);
 
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-        try (StringReader reader = new StringReader(xml)) {
-            Product result = (Product) unmarshaller.unmarshal(reader);
-            System.out.println(result);
-        }
+        System.out.println(jsonObject);
+
+        System.out.println(new JSONObject(product));
     }
 }
