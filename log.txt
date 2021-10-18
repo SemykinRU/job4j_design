@@ -1,10 +1,77 @@
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:18 +0300] "GET /items/ajax.html HTTP/1.1" 404 1113
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:23 +0300] "GET /TrackStudio HTTP/1.1" 302 -
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:23 +0300] "GET /TrackStudio/ HTTP/1.1" 404 1110
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:34 +0300] "GET /TrackStudioNew/ HTTP/1.1" 404 -
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:48 +0300] "GET / HTTP/1.1" 200 11488
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:49 +0300] "GET /tomcat.png HTTP/1.1" 200 5103
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:49 +0300] "GET /tomcat.css HTTP/1.1" 200 5931
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:49 +0300] "GET /bg-nav.png HTTP/1.1" 200 1401
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:49 +0300] "GET /bg-button.png HTTP/1.1" 200 713
-0:0:0:0:0:0:0:1 - - [19/Feb/2020:15:21:49 +0300] "GET /bg-middle.png HTTP/1.1" 200 1918
+E:\Projeckt\Java\job4j_design\.git\FETCH_HEAD
+E:\Projeckt\Java\job4j_design\.git\HEAD
+E:\Projeckt\Java\job4j_design\.git\logs\HEAD
+E:\Projeckt\Java\job4j_design\.git\ORIG_HEAD
+E:\Projeckt\Java\job4j_design\data\bot\botAnswer.txt
+E:\Projeckt\Java\job4j_design\data\pair_with_IllegalArgumentException.properties
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\collection\SimpleArray.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\collection\SimpleArrayIterator.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\generics\Animal.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\generics\Base.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\generics\SimpleArray.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\generics\SimpleArrayIterator.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\io\Analysis.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\io\ArgsName.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\it\BackwardArrayIt.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\question\Analize.java
+E:\Projeckt\Java\job4j_design\src\main\java\ru\job4j\searcher\ArgsName.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\collection\SimpleArrayTest.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\generics\SimpleArrayTest.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\io\AnalysisTest.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\io\ArgsNameTest.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\it\BackwardArrayItTest.java
+E:\Projeckt\Java\job4j_design\src\test\java\ru\job4j\question\AnalizeTest.java
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\collection\SimpleArray.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\collection\SimpleArrayIterator.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\generics\Animal.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\generics\Base.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\generics\SimpleArray.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\generics\SimpleArrayIterator.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\io\Analysis.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\io\ArgsName.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\it\BackwardArrayIt.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\question\Analize.class
+E:\Projeckt\Java\job4j_design\target\classes\ru\job4j\searcher\ArgsName.class
+E:\Projeckt\Java\job4j_design\target\job4j_design-1.0-SNAPSHOT.jar
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.collection\SimpleArray.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.collection\SimpleArray.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.collection\SimpleArrayIterator.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.collection\SimpleArrayIterator.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\Animal.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\Animal.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\Base.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\Base.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\SimpleArray.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\SimpleArray.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\SimpleArrayIterator.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.generics\SimpleArrayIterator.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.io\Analysis.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.io\Analysis.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.io\ArgsName.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.io\ArgsName.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.it\BackwardArrayIt.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.it\BackwardArrayIt.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.question\Analize.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.question\Analize.java.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.searcher\ArgsName.html
+E:\Projeckt\Java\job4j_design\target\site\jacoco\ru.job4j.searcher\ArgsName.java.html
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.AppTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.collection.SimpleArrayTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.generics.SimpleArrayTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.io.AnalysisTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.io.ArgsNameTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.it.BackwardArrayItTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\ru.job4j.question.AnalizeTest.txt
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.AppTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.collection.SimpleArrayTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.generics.SimpleArrayTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.io.AnalysisTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.io.ArgsNameTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.it.BackwardArrayItTest.xml
+E:\Projeckt\Java\job4j_design\target\surefire-reports\TEST-ru.job4j.question.AnalizeTest.xml
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\collection\SimpleArrayTest.class
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\generics\SimpleArrayTest.class
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\io\AnalysisTest.class
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\io\ArgsNameTest.class
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\it\BackwardArrayItTest.class
+E:\Projeckt\Java\job4j_design\target\test-classes\ru\job4j\question\AnalizeTest.class
