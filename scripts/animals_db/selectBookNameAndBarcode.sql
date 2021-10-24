@@ -1,0 +1,1 @@
+select b.name as Имя_книги, bb.code as Штрихкод from book as b join barcode as bb on b.barcode_id = bb.id;

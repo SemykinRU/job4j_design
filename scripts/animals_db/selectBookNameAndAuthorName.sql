@@ -1,0 +1,1 @@
+select b.name as Имя_книги, bb.name as Автор from book as b join author as bb on b.author_id = bb.id;
