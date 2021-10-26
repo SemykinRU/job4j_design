@@ -42,7 +42,12 @@ select * from emploers e left join departments d on e.department_id = d.id;
 select * from emploers e right join departments d on e.department_id = d.id;
 select * from emploers e full join departments d on e.department_id = d.id;
 select * from emploers e cross join departments d;
-select * from departments d left join emploers e on e.department_id = d.id where e.name is null;
+select * from departments d left join emploers e on e.department_id = d.id
+    where e.name is null;
 select * from emploers e left join departments d on e.department_id = d.id;
 select * from departments d right join emploers e on e.department_id = d.id;
-select t1.name as Первый_претендент, t2.name as Второй_претендент, t1.name || ' - ' || t2.name as Возможная_пара from teens t1 cross join teens t2 where t1.gender != t2.gender;
+select t1.name as Первый_претендент, t2.name as Второй_претендент,
+    t1.name || ' - ' || t2.name as Возможная_пара
+	    from teens t1
+	    cross join teens t2
+	    where t1.gender != t2.gender;
