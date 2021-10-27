@@ -23,6 +23,7 @@ public class ImportDB {
         List<User> users = new ArrayList<>();
         try (BufferedReader rd = new BufferedReader(new FileReader(dump))) {
            rd.lines()
+                   .filter(x -> x.contains(";") && x.split(";").length == 2)
                    .map(x -> x.split(";"))
                    .map(y -> new User(y[0], y[1]))
                    .forEach(users::add);
