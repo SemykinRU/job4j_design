@@ -24,53 +24,36 @@ public class TableEditor implements AutoCloseable {
         connection = DriverManager.getConnection(url, login, password);
     }
 
-    public void createTable(String tableName) {
+    private void execute(String sql) {
         try (Statement statement = connection.createStatement()) {
-            String key = "id serial primary key";
-            String sql = String.format("create table if not exists %s(%s)", tableName, key);
             statement.execute(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void createTable(String tableName) {
+        String key = "id serial primary key";
+        execute(String.format("create table if not exists %s(%s)", tableName, key));
     }
 
     public void dropTable(String tableName) {
-        try (Statement statement = connection.createStatement()) {
-            String sql = String.format("drop table if exists %s", tableName);
-            statement.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        execute(String.format("drop table if exists %s", tableName));
     }
 
     public void addColumn(String tableName, String columnName, String type) {
-        try (Statement statement = connection.createStatement()) {
-            String sql = String.format("alter table if exists %s add column if not exists %s %s",
-                                            tableName, columnName, type);
-            statement.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        execute(String.format("alter table if exists %s add column if not exists %s %s",
+                tableName, columnName, type));
     }
 
     public void dropColumn(String tableName, String columnName) {
-        try (Statement statement = connection.createStatement()) {
-            String sql = String.format("alter table if exists %s drop column if exists %s",
-                    tableName, columnName);
-            statement.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        execute(String.format("alter table if exists %s drop column if exists %s",
+                tableName, columnName));
     }
 
     public void renameColumn(String tableName, String columnName, String newColumnName) {
-        try (Statement statement = connection.createStatement()) {
-            String sql = String.format("alter table if exists %s rename column %s to %s",
-                    tableName, columnName, newColumnName);
-            statement.execute(sql);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        execute(String.format("alter table if exists %s rename column %s to %s",
+                tableName, columnName, newColumnName));
     }
 
 
