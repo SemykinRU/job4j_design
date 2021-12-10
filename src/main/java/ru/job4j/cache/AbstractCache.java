@@ -14,12 +14,12 @@ public abstract class AbstractCache<K, V> {
     }
 
     public V get(K key) throws IOException {
-        if (cache.get(key) == null) {
-            var value = load(key);
+        var value = cache.get(key) == null ? null : cache.get(key).get();
+        if (value == null) {
+            value = load(key);
             put(key, value);
-            return value;
         }
-        return cache.get(key).get();
+        return value;
     }
 
     protected abstract V load(K key) throws IOException;

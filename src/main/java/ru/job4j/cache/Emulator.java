@@ -14,17 +14,17 @@ public class Emulator {
             System.out.println("0.Выход");
             int i = in.nextInt();
             switch (i) {
-                case 1:
+                case 1 -> {
                     System.out.println("Имя файла");
                     String fileName = dirFileCache.get(in.next());
                     System.out.println(fileName);
-
-                case 0:
+                }
+                case 0 -> {
                     isExit = false;
-
-                default:
+                }
+                default -> {
+                }
             }
-
         }
     }
 }

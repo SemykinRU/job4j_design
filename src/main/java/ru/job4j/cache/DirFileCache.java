@@ -16,19 +16,7 @@ public class DirFileCache extends AbstractCache<String, String> {
     }
 
     @Override
-    protected String load(String key) {
-        String file = String.format("%s/%s", cachingDir, key);
-        if (!Files.exists(Path.of(file))) {
-            throw new IllegalArgumentException("Файл не найден.");
-        }
-        StringBuilder builder = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            br.lines()
-                    .map(x -> x.concat(System.lineSeparator()))
-                    .forEach(builder::append);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return builder.toString();
+    protected String load(String key) throws IOException {
+        return Files.readString(Path.of(cachingDir, key));
     }
 }
