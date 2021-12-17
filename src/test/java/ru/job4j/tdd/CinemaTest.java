@@ -35,7 +35,7 @@ public class CinemaTest {
     }
 
     @Ignore
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void whenBuyTwoTicketOnOneSeatByDiffSessionThenTrue() {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
@@ -45,6 +45,7 @@ public class CinemaTest {
         date2.set(2020, 10, 10, 15, 00);
         Ticket ticket1 = cinema.buy(account, 1, 1, date);
         Ticket ticket2 = cinema.buy(account, 1, 1, date2);
+        assertThat(ticket2, is(new Ticket3D()));
     }
 
     @Ignore
