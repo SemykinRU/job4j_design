@@ -1,5 +1,6 @@
 package ru.job4j.template;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ import static org.junit.Assert.*;
 
 public class GeneratorTest {
 
+    @Ignore
     @Test
     public void whenItsOKGenProduceThen() {
         String str = "I am a ${name}, Who are ${subject}?";
@@ -22,8 +24,9 @@ public class GeneratorTest {
         assertThat(result, is(expected));
     }
 
+    @Ignore
     @Test(expected = IllegalArgumentException.class)
-    public void whenThrowIllegalArgumentExceptionThen() {
+    public void whenTemplateKeyMissingInMapThen() {
         String str = "I am a ${name}, Who are ${subject}?";
         Map<String, String> args = new HashMap<>();
         args.put("name", "Roman");
@@ -31,8 +34,9 @@ public class GeneratorTest {
         String result = generator.produce(str, args);
     }
 
-    @Test(expected = Exception.class)
-    public void whenUnusedAllArgsThen() {
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void whenNoUsedAllKeyInMapThen() {
         String str = "I am a ${name}, Who are ${subject}?";
         Map<String, String> args = new HashMap<>();
         args.put("name", "Roman");
