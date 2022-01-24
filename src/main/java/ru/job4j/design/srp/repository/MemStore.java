@@ -1,7 +1,6 @@
 package ru.job4j.design.srp.repository;
 
 import ru.job4j.design.srp.model.Employee;
-import ru.job4j.design.srp.repository.Store;
 
 import java.util.ArrayList;
 import java.util.List;

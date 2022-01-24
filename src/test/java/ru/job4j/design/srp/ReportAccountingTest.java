@@ -4,9 +4,6 @@ import org.junit.Test;
 import ru.job4j.design.srp.model.Employee;
 import ru.job4j.design.srp.report.Report;
 import ru.job4j.design.srp.report.ReportAccounting;
-import ru.job4j.design.srp.report.ReportEngine;
-import ru.job4j.design.srp.report.forms.ReportFormattedToAccountingBySalaryFormAfterTax;
-import ru.job4j.design.srp.report.forms.ReportFormatted;
 import ru.job4j.design.srp.repository.MemStore;
 
 import java.util.Calendar;
@@ -20,10 +17,10 @@ public class ReportAccountingTest {
     public void whenSalary100AndTax13thenSalary87() {
         MemStore store = new MemStore();
         Calendar now = Calendar.getInstance();
-        ReportFormatted formatted = new ReportFormattedToAccountingBySalaryFormAfterTax(13.0);
+        Double tax = 13.0d;
         Employee worker = new Employee("Ivan", now, now, 100);
         store.add(worker);
-        Report reportAccounting = new ReportAccounting(store, formatted);
+        Report reportAccounting = new ReportAccounting(store, tax);
         StringBuilder expect = new StringBuilder()
                 .append("Name; Hired; Fired; Salary after taxes;")
                 .append(System.lineSeparator())
@@ -39,10 +36,10 @@ public class ReportAccountingTest {
     public void whenSalary10AndTax13thenSalary8dot7() {
         MemStore store = new MemStore();
         Calendar now = Calendar.getInstance();
-        ReportFormatted formatted = new ReportFormattedToAccountingBySalaryFormAfterTax(13.0);
+        Double tax = 13.0d;
         Employee worker = new Employee("Ivan", now, now, 10);
         store.add(worker);
-        Report reportAccounting = new ReportAccounting(store, formatted);
+        Report reportAccounting = new ReportAccounting(store, tax);
         StringBuilder expect = new StringBuilder()
                 .append("Name; Hired; Fired; Salary after taxes;")
                 .append(System.lineSeparator())
